@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>신대림공인중개사</title>
+    <title>오늘도 힘내세요!</title>
     <!-- Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +14,46 @@
 <body>
     <main class="container">
         <div class="glass-panel">
-            <h1 class="idea-text">신대림공인중개사</h1>
+            <h1 class="idea-text" id="mainText">오늘도 힘내세요!</h1>
+            <button class="next-btn" id="nextBtn">다음 문장 보기</button>
         </div>
     </main>
+    <script>
+        const sentences = [
+            "오늘도 힘내세요!",
+            "오늘도 해냈어요!",
+            "조금씩 나아지고 있어요.",
+            "이대로 계속 가봅시다."
+        ];
+        
+        let currentIndex = 0;
+        const mainText = document.getElementById('mainText');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        nextBtn.addEventListener('click', () => {
+            // Update index to the next sentence
+            currentIndex = (currentIndex + 1) % sentences.length;
+            
+            // Add a small fade effect (optional, handled via CSS if needed, but we'll just swap text for now)
+            mainText.style.opacity = 0;
+            
+            setTimeout(() => {
+                mainText.textContent = sentences[currentIndex];
+                
+                const sentence = sentences[currentIndex];
+                
+                nextBtn.classList.remove('yellow', 'green');
+                
+                if (sentence === "오늘도 해냈어요!") {
+                    nextBtn.classList.add('yellow');
+                } else if (sentence === "이대로 계속 가봅시다.") {
+                    nextBtn.classList.add('green');
+                }
+
+                mainText.style.transition = 'opacity 0.3s ease';
+                mainText.style.opacity = 1;
+            }, 150);
+        });
+    </script>
 </body>
 </html>
