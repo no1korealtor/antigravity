@@ -20,13 +20,70 @@ body, html {
     font-family: 'Inter', 'Noto Sans KR', sans-serif;
     color: var(--text-color);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Changed to column for 3-part layout */
     overflow: hidden;
 }
 
+.app-header {
+    width: 100%;
+    background-color: #3b82f6; /* Blue background */
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.nav-menu a:hover {
+    opacity: 0.8;
+}
+
 .container {
+    flex: 1; /* Take up main space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     perspective: 1000px;
+}
+
+.app-footer {
+    width: 100%;
+    background-color: #475569; /* Grey background */
+    color: #f8fafc;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 10;
+}
+
+.app-footer p {
+    margin: 0;
 }
 
 .glass-panel {
