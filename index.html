@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,13 @@
     <!-- Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
     <main class="container">
         <div class="glass-panel">
@@ -25,25 +29,25 @@
             "조금씩 나아지고 있어요.",
             "이대로 계속 가봅시다."
         ];
-        
+
         let currentIndex = 0;
         const mainText = document.getElementById('mainText');
         const nextBtn = document.getElementById('nextBtn');
-        
+
         nextBtn.addEventListener('click', () => {
             // Update index to the next sentence
             currentIndex = (currentIndex + 1) % sentences.length;
-            
+
             // Add a small fade effect (optional, handled via CSS if needed, but we'll just swap text for now)
             mainText.style.opacity = 0;
-            
+
             setTimeout(() => {
                 mainText.textContent = sentences[currentIndex];
-                
+
                 const sentence = sentences[currentIndex];
-                
+
                 nextBtn.classList.remove('yellow', 'green');
-                
+
                 if (sentence === "오늘도 해냈어요!") {
                     nextBtn.classList.add('yellow');
                 } else if (sentence === "이대로 계속 가봅시다.") {
@@ -56,4 +60,5 @@
         });
     </script>
 </body>
+
 </html>
